@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
   });
 });
 
-app.use('/urlshort', urlroute);
+app.use('/', urlroute);
 
 app.use((req, res, next) => {
   const error = new Error('not found');
