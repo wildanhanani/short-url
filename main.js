@@ -9,7 +9,7 @@ dotenv.config();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.enable('trust proxy');
 const urlroute = require('./routes/url');
 
 mongoose
