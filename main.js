@@ -10,6 +10,8 @@ dotenv.config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const urlroute = require('./routes/url');
+
 mongoose
   .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
@@ -30,6 +32,8 @@ app.get('/', (req, res) => {
     timestamp: new Date(),
   });
 });
+
+app.use('/urlshort', urlroute);
 
 app.use((req, res, next) => {
   const error = new Error('not found');
