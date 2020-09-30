@@ -8,7 +8,6 @@ exports.shortUrl = async (req, res, next) => {
     const { url } = req.body;
     const codeurl = shortid.generate();
     const baseurl = `${req.protocol}://${req.headers.host}/${codeurl}`;
-    // eslint-disable-next-line no-undef
     if (!validUrl.isUri(url)) {
       return res.status(401).json({
         msg: 'format is wrong',
